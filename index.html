@@ -1,0 +1,1220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Late Summer Party on Boat — Berlin, 18 Sep 2026</title>
+  <style>
+    :root {
+      --mck-navy: #051c2c;
+      --mck-blue: #0066cc;
+      --mck-teal: #00a9ce;
+      --mck-light: #f4f7fa;
+      --mck-gold: #c4a35a;
+      --mck-text: #1a1a1a;
+      --mck-muted: #5a6472;
+      --shadow: 0 4px 24px rgba(5, 28, 44, 0.12);
+      --radius: 8px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+      background: var(--mck-light);
+      color: var(--mck-text);
+      line-height: 1.6;
+    }
+
+    header {
+      background: linear-gradient(135deg, var(--mck-navy) 0%, #0a3d62 100%);
+      color: #fff;
+      padding: 2rem 1.5rem 1.25rem;
+      border-bottom: 4px solid var(--mck-teal);
+    }
+
+    .header-inner { max-width: 1100px; margin: 0 auto; }
+
+    .eyebrow {
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--mck-teal);
+      margin-bottom: 0.35rem;
+    }
+
+    .header-tagline {
+      font-size: 0.88rem;
+      opacity: 0.8;
+      font-style: italic;
+      margin-bottom: 0.75rem;
+      max-width: 640px;
+    }
+
+    header h1 {
+      font-size: clamp(1.5rem, 4vw, 2.2rem);
+      font-weight: 600;
+      margin-bottom: 0.35rem;
+    }
+
+    header .subtitle {
+      font-size: 1rem;
+      opacity: 0.9;
+      max-width: 720px;
+    }
+
+    .meta-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 1.25rem;
+      font-size: 0.9rem;
+    }
+
+    .meta-pill {
+      background: rgba(255,255,255,0.12);
+      padding: 0.35rem 0.85rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+
+    nav {
+      background: #fff;
+      border-bottom: 1px solid #dde3ea;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+
+    .nav-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.25rem;
+      padding: 0.5rem 1rem;
+    }
+
+    .nav-btn {
+      background: none;
+      border: none;
+      padding: 0.65rem 1rem;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--mck-muted);
+      cursor: pointer;
+      border-radius: var(--radius);
+      transition: all 0.2s;
+    }
+
+    .nav-btn:hover { background: var(--mck-light); color: var(--mck-navy); }
+    .nav-btn.active {
+      background: var(--mck-navy);
+      color: #fff;
+    }
+
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem 4rem;
+    }
+
+    .section { display: none; animation: fadeIn 0.35s ease; }
+    .section.active { display: block; }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    h2 {
+      font-size: 1.5rem;
+      color: var(--mck-navy);
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
+
+    h3 {
+      font-size: 1.05rem;
+      color: var(--mck-navy);
+      margin: 1.5rem 0 0.75rem;
+    }
+
+    .section-intro {
+      color: var(--mck-muted);
+      margin-bottom: 1.5rem;
+      font-size: 0.95rem;
+    }
+
+    .callout {
+      background: #fff;
+      border-left: 4px solid var(--mck-teal);
+      padding: 1rem 1.25rem;
+      margin: 1.25rem 0;
+      border-radius: 0 var(--radius) var(--radius) 0;
+      box-shadow: var(--shadow);
+    }
+
+    .callout.warning { border-left-color: var(--mck-gold); }
+    .callout.urgent { border-left-color: #e74c3c; }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.25rem;
+      margin-top: 1rem;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: var(--radius);
+      padding: 1.25rem;
+      box-shadow: var(--shadow);
+      border: 1px solid #e8edf2;
+    }
+
+    .card h4 {
+      color: var(--mck-blue);
+      font-size: 0.95rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .card ul { padding-left: 1.2rem; font-size: 0.92rem; }
+    .card li { margin-bottom: 0.35rem; }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #fff;
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      margin: 1rem 0;
+      font-size: 0.92rem;
+    }
+
+    th, td {
+      padding: 0.85rem 1rem;
+      text-align: left;
+      border-bottom: 1px solid #e8edf2;
+    }
+
+    th {
+      background: var(--mck-navy);
+      color: #fff;
+      font-weight: 600;
+    }
+
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: #f8fafc; }
+
+    .timeline { position: relative; padding-left: 1.5rem; }
+
+    .timeline-item {
+      position: relative;
+      padding-bottom: 1.5rem;
+      padding-left: 1.5rem;
+      border-left: 2px solid var(--mck-teal);
+    }
+
+    .timeline-item:last-child { border-left-color: transparent; padding-bottom: 0; }
+
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      left: -7px;
+      top: 4px;
+      width: 12px;
+      height: 12px;
+      background: var(--mck-teal);
+      border-radius: 50%;
+      border: 2px solid #fff;
+      box-shadow: 0 0 0 2px var(--mck-teal);
+    }
+
+    .time-label {
+      font-weight: 700;
+      color: var(--mck-blue);
+      font-size: 0.88rem;
+    }
+
+    .tag {
+      display: inline-block;
+      background: var(--mck-light);
+      color: var(--mck-navy);
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 0.2rem 0.55rem;
+      border-radius: 4px;
+      margin-right: 0.35rem;
+      margin-top: 0.35rem;
+    }
+
+    .tag.must { background: #fff3cd; color: #856404; }
+    .tag.fun { background: #d4edda; color: #155724; }
+
+    .poll-option {
+      background: #fff;
+      border: 2px solid #e8edf2;
+      border-radius: var(--radius);
+      padding: 1rem 1.25rem;
+      margin-bottom: 0.75rem;
+      cursor: pointer;
+      transition: all 0.2s;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+    }
+
+    .poll-option:hover { border-color: var(--mck-blue); }
+    .poll-option.selected { border-color: var(--mck-teal); background: #f0fbff; }
+
+    .poll-option input { margin-top: 0.25rem; accent-color: var(--mck-teal); }
+
+    .poll-option strong { display: block; color: var(--mck-navy); }
+    .poll-option span { font-size: 0.88rem; color: var(--mck-muted); }
+
+    .poll-suggest-input {
+      display: block;
+      width: 100%;
+      margin-top: 0.6rem;
+      padding: 0.55rem 0.75rem;
+      border: 1px solid #dde3ea;
+      border-radius: 6px;
+      font-size: 0.9rem;
+      font-family: inherit;
+    }
+
+    .poll-suggest-input:focus {
+      outline: none;
+      border-color: var(--mck-teal);
+      box-shadow: 0 0 0 2px rgba(0, 150, 136, 0.15);
+    }
+
+    .poll-bar-wrap {
+      height: 8px;
+      background: #e8edf2;
+      border-radius: 4px;
+      margin-top: 0.5rem;
+      overflow: hidden;
+    }
+
+    .poll-bar {
+      height: 100%;
+      background: linear-gradient(90deg, var(--mck-blue), var(--mck-teal));
+      border-radius: 4px;
+      transition: width 0.5s ease;
+    }
+
+    .btn {
+      background: var(--mck-navy);
+      color: #fff;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      font-size: 0.92rem;
+      font-weight: 600;
+      border-radius: var(--radius);
+      cursor: pointer;
+      margin-top: 1rem;
+      transition: background 0.2s;
+    }
+
+    .btn:hover { background: var(--mck-blue); }
+
+    .contact-card {
+      background: linear-gradient(135deg, var(--mck-navy), #0a3d62);
+      color: #fff;
+      border-radius: var(--radius);
+      padding: 2rem;
+      text-align: center;
+      box-shadow: var(--shadow);
+    }
+
+    .contact-card h3 { color: var(--mck-teal); margin-top: 0; }
+    .contact-card p { opacity: 0.9; margin: 0.5rem 0; }
+
+    .contact-names {
+      font-size: 1.4rem;
+      font-weight: 600;
+      margin: 1rem 0;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.8rem;
+      color: var(--mck-muted);
+      border-top: 1px solid #dde3ea;
+    }
+
+    .framework-box {
+      background: #fff;
+      border: 1px dashed var(--mck-gold);
+      border-radius: var(--radius);
+      padding: 1rem 1.25rem;
+      margin: 1rem 0;
+      font-size: 0.9rem;
+    }
+
+    .framework-box em { color: var(--mck-gold); font-style: normal; font-weight: 600; }
+
+    a { color: var(--mck-blue); }
+
+    .map-wrap {
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      margin: 1.25rem 0;
+      border: 1px solid #e8edf2;
+    }
+
+    .map-wrap iframe {
+      width: 100%;
+      height: 320px;
+      border: 0;
+      display: block;
+    }
+
+    .form-group {
+      margin-bottom: 1.1rem;
+    }
+
+    .form-group label {
+      display: block;
+      font-weight: 600;
+      font-size: 0.88rem;
+      color: var(--mck-navy);
+      margin-bottom: 0.35rem;
+    }
+
+    .form-group input[type="text"],
+    .form-group input[type="time"],
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      padding: 0.65rem 0.85rem;
+      border: 1px solid #dde3ea;
+      border-radius: var(--radius);
+      font-size: 0.92rem;
+      font-family: inherit;
+    }
+
+    .form-group textarea { min-height: 70px; resize: vertical; }
+
+    .checkbox-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 0.5rem;
+    }
+
+    .checkbox-grid label {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: normal;
+      font-size: 0.9rem;
+      cursor: pointer;
+      background: #fff;
+      padding: 0.6rem 0.85rem;
+      border-radius: var(--radius);
+      border: 1px solid #e8edf2;
+    }
+
+    .checkbox-grid input { accent-color: var(--mck-teal); }
+
+    .diet-options {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .diet-options label {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-weight: normal;
+      background: #fff;
+      padding: 0.5rem 0.85rem;
+      border-radius: var(--radius);
+      border: 1px solid #e8edf2;
+      cursor: pointer;
+      font-size: 0.9rem;
+    }
+
+    .summary-stat {
+      display: inline-block;
+      background: var(--mck-navy);
+      color: #fff;
+      padding: 0.4rem 0.85rem;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin: 0.25rem 0.35rem 0.25rem 0;
+    }
+
+    .carpool-row td input {
+      width: 100%;
+      padding: 0.4rem;
+      border: 1px solid #dde3ea;
+      border-radius: 4px;
+      font-size: 0.88rem;
+    }
+
+    .emoji-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 0.65rem;
+      margin: 1rem 0;
+    }
+
+    .emoji-item {
+      background: #fff;
+      border-radius: var(--radius);
+      padding: 0.85rem;
+      text-align: center;
+      border: 1px solid #e8edf2;
+      font-size: 0.88rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    }
+
+    .emoji-item .icon { font-size: 1.75rem; display: block; margin-bottom: 0.35rem; }
+
+    .bring-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin: 0.75rem 0;
+    }
+
+    .bring-chip {
+      background: #fff;
+      border: 1px solid #e8edf2;
+      padding: 0.4rem 0.75rem;
+      border-radius: 999px;
+      font-size: 0.85rem;
+    }
+
+    .logistics-box {
+      background: linear-gradient(135deg, #f0fbff, #fff);
+      border: 2px solid var(--mck-teal);
+      border-radius: var(--radius);
+      padding: 1rem 1.25rem;
+      margin: 1rem 0;
+    }
+
+    .venue-showcase {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.25rem;
+      margin: 1.25rem 0 2rem;
+    }
+
+    .venue-card {
+      background: #fff;
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      border: 1px solid #e8edf2;
+    }
+
+    .venue-card img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .venue-card-body { padding: 1rem 1.15rem; }
+
+    .venue-card-body h4 {
+      color: var(--mck-navy);
+      font-size: 1rem;
+      margin-bottom: 0.35rem;
+    }
+
+    .venue-highlight {
+      display: inline-block;
+      background: var(--mck-light);
+      color: var(--mck-blue);
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 0.2rem 0.55rem;
+      border-radius: 4px;
+      margin-bottom: 0.5rem;
+    }
+
+    .venue-card-body p {
+      font-size: 0.85rem;
+      color: var(--mck-muted);
+      margin: 0.25rem 0;
+    }
+
+    .section-hero {
+      font-size: 2.5rem;
+      text-align: center;
+      margin: 0.5rem 0 1rem;
+      letter-spacing: 0.05em;
+    }
+
+    .venue-card h4 a { color: var(--mck-navy); text-decoration: none; }
+    .venue-card h4 a:hover { color: var(--mck-blue); text-decoration: underline; }
+
+    .venue-card { transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s; }
+    .venue-card:hover { border-color: var(--mck-teal); transform: translateY(-3px); box-shadow: 0 8px 28px rgba(5, 28, 44, 0.15); }
+
+    .venue-card > a { display: block; }
+    .venue-card > a:hover img { opacity: 0.92; }
+
+    .venue-links { margin-top: 0.65rem; font-size: 0.82rem; }
+    .venue-links a { font-weight: 600; margin-right: 0.85rem; }
+
+    .venue-img-placeholder {
+      height: 160px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #e3f2fd, #f0fbff);
+      font-size: 3rem;
+    }
+
+    .poll-option .poll-links {
+      display: block;
+      margin-top: 0.35rem;
+      font-size: 0.8rem;
+    }
+
+    .poll-option .poll-links a {
+      font-weight: 600;
+      margin-right: 0.75rem;
+    }
+
+    @media (max-width: 600px) {
+      .nav-btn { flex: 1 1 45%; text-align: center; font-size: 0.8rem; }
+      table { font-size: 0.82rem; }
+      th, td { padding: 0.6rem; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="eyebrow">Confidential — For Internal Team Use Only*</div>
+    <p class="header-tagline">*If this leaks, we were never here. We were at a "strategy workshop." With beer.</p>
+    <h1>Late Summer Party on Boat</h1>
+    <div class="meta-bar">
+      <span class="meta-pill">📅 Fri, 18 Sep 2026</span>
+      <span class="meta-pill">⏰ 13:30 – 17:30 CET</span>
+      <span class="meta-pill">🚤 Spreefloss, Berlin</span>
+    </div>
+  </div>
+</header>
+
+<nav>
+  <div class="nav-inner">
+    <button class="nav-btn active" data-section="foodvote">🍽️ Food Vote</button>
+    <button class="nav-btn" data-section="polls">🗳️ After-Party Vote</button>
+    <button class="nav-btn" data-section="travel">🚆 Travel</button>
+    <button class="nav-btn" data-section="hotels">🏨 Hotels</button>
+    <button class="nav-btn" data-section="contact">📞 Contact</button>
+  </div>
+</nav>
+
+<main>
+
+  <!-- ========== FOOD VOTE ========== -->
+  <section id="foodvote" class="section active">
+    <div class="section-hero">🚤🍖🥗☀️</div>
+    <h2>Food Vote</h2>
+    <p class="section-intro">Tell us your diet & preferences so we can plan the BBQ.</p>
+
+    <div class="card">
+      <h4>✅ Already covered</h4>
+      <div class="emoji-grid">
+        <div class="emoji-item"><span class="icon">🥩</span>Meat</div>
+        <div class="emoji-item"><span class="icon">🥗</span>Salad</div>
+        <div class="emoji-item"><span class="icon">🌱</span>Vegan & veggie options</div>
+        <div class="emoji-item"><span class="icon">🍽️</span>Plates</div>
+        <div class="emoji-item"><span class="icon">🍴</span>Cutlery</div>
+        <div class="emoji-item"><span class="icon">🧻</span>Napkins</div>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:1rem;">
+      <h4>🎁 Nice to bring (if you can)</h4>
+      <div class="bring-list">
+        <span class="bring-chip">🍺 Drinks & ice</span>
+        <span class="bring-chip">🍰 Dessert</span>
+        <span class="bring-chip">🍉 Fruit & snacks</span>
+        <span class="bring-chip">🥖 Extra bread / rolls</span>
+        <span class="bring-chip">🧴 Sunscreen</span>
+        <span class="bring-chip">🕶️ Sunglasses</span>
+        <span class="bring-chip">🩱 Swimwear & towel</span>
+        <span class="bring-chip">🗑️ Trash bags</span>
+        <span class="bring-chip">🧊 Cooler box</span>
+      </div>
+      <p style="font-size:0.85rem;color:var(--mck-muted);margin-top:0.5rem;">Anything else welcome — just note it below.</p>
+    </div>
+
+    <div class="logistics-box">
+      <strong>🙌 Logistics heroes wanted!</strong>
+      <p style="margin-top:0.35rem;font-size:0.9rem;">It would be great if you can come a bit earlier, around <strong>13:00</strong>, to help with setup & deliveries :D</p>
+    </div>
+
+    <form id="food-form">
+      <div class="card" style="margin-bottom:1.25rem;">
+        <div class="form-group">
+          <label for="food-name">Name *</label>
+          <input type="text" id="food-name" name="name" required placeholder="Your name">
+        </div>
+
+        <div class="form-group">
+          <label>Diet *</label>
+          <div class="diet-options">
+            <label><input type="radio" name="diet" value="omnivore" required> 🥩 Omnivore</label>
+            <label><input type="radio" name="diet" value="vegetarian"> 🥗 Vegetarian</label>
+            <label><input type="radio" name="diet" value="vegan"> 🌱 Vegan</label>
+            <label><input type="radio" name="diet" value="other"> ✨ Other</label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="food-prefs">Preferences / allergies</label>
+          <textarea id="food-prefs" name="prefs" placeholder="e.g. no shellfish, gluten-free, love halloumi"></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="food-bring">Happy to bring? (optional)</label>
+          <textarea id="food-bring" name="bring" placeholder="e.g. brownies, beer, watermelon, ice"></textarea>
+        </div>
+      </div>
+
+      <div class="card" style="margin-bottom:1.25rem;">
+        <label style="display:flex;align-items:center;gap:0.5rem;font-size:0.9rem;cursor:pointer;">
+          <input type="checkbox" name="help" value="early"> 🦸 I can come ~13:00 to help with logistics
+        </label>
+      </div>
+
+      <button type="submit" class="btn">Submit 🎉</button>
+    </form>
+
+    <div id="food-thanks" class="callout" style="display:none;margin-top:1.5rem;">
+      <strong>Submitted! 🙌</strong> See summary below.
+    </div>
+
+    <h3 style="margin-top:2rem;">Summary</h3>
+
+    <div id="food-stats" style="margin-bottom:1rem;"></div>
+
+    <table id="food-summary-table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Diet</th>
+          <th>Prefs / allergies</th>
+          <th>Bringing</th>
+          <th>~13:00 help</th>
+        </tr>
+      </thead>
+      <tbody id="food-summary-body">
+        <tr><td colspan="5" style="color:var(--mck-muted);">No responses yet.</td></tr>
+      </tbody>
+    </table>
+
+    <h3 style="margin-top:2rem;">Logistics helpers (~13:00) 🦸</h3>
+    <div class="card">
+      <p id="roster-early" style="color:var(--mck-muted);">—</p>
+    </div>
+  </section>
+
+  <!-- ========== POLLS ========== -->
+  <section id="polls" class="section">
+    <h2>After-Party Vote</h2>
+    <p class="section-intro">Boat ends 17:30. Vote by <strong>Thu 10 Sep</strong> to book.</p>
+
+    <div class="callout urgent">
+      <strong>Deadline: Thu 10 Sep.</strong> Need headcount for reservations.
+    </div>
+
+    <div class="venue-showcase">
+      <article class="venue-card">
+        <a href="https://www.mein-haus-am-see.club/" target="_blank" rel="noopener">
+          <img src="images/meinhaus.png" alt="Mein Haus am See — photo from venue website">
+        </a>
+        <div class="venue-card-body">
+          <span class="venue-highlight">✨ Not a bar, not a club</span>
+          <h4>🏡 <a href="https://www.mein-haus-am-see.club/" target="_blank" rel="noopener">Mein Haus am See</a></h4>
+          <p>Brunnenstraße 197-198, 10119 Berlin · ~35 min from Spreefloss</p>
+          <p>Multi-level Mitte spot — terrace, cocktails, Cosmic Kaspar club downstairs.</p>
+          <div class="venue-links">
+            <a href="https://www.mein-haus-am-see.club/" target="_blank" rel="noopener">Website ↗</a>
+            <a href="https://maps.google.com/?q=Brunnenstraße+197-198,+10119+Berlin" target="_blank" rel="noopener">Maps ↗</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="venue-card">
+        <a href="https://www.brlo.de/gastronomien/brlo-brwhouse" target="_blank" rel="noopener">
+          <img src="images/brlo.webp" alt="BRLO Brwhouse — photo from BRLO website">
+        </a>
+        <div class="venue-card-body">
+          <span class="venue-highlight">🍺 Craft beer garden · Gleisdreieck</span>
+          <h4>🍺 <a href="https://www.brlo.de/gastronomien/brlo-brwhouse" target="_blank" rel="noopener">BRLO Brwhouse</a></h4>
+          <p>Schöneberger Str. 16, 10963 Berlin · ~30 min from Spreefloss</p>
+          <p>Container brewery & beer garden — own-brew beer, veggie-focused food, park views.</p>
+          <div class="venue-links">
+            <a href="https://www.brlo.de/gastronomien/brlo-brwhouse" target="_blank" rel="noopener">Website ↗</a>
+            <a href="https://maps.google.com/?q=Schöneberger+Str.+16,+10963+Berlin" target="_blank" rel="noopener">Maps ↗</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="venue-card">
+        <a href="https://klunkerkranich.org/" target="_blank" rel="noopener">
+          <img src="images/klunkerkranich.jpg" alt="Klunkerkranich — photo from venue website">
+        </a>
+        <div class="venue-card-body">
+          <span class="venue-highlight">🌅 Rooftop sunset · Neukölln</span>
+          <h4>🌆 <a href="https://klunkerkranich.org/" target="_blank" rel="noopener">Klunkerkranich</a></h4>
+          <p>Karl-Marx-Straße 66, 12043 Berlin · ~25 min from Spreefloss</p>
+          <p>Cultural rooftop garden — skyline views, DJ sets, golden-hour drinks.</p>
+          <div class="venue-links">
+            <a href="https://klunkerkranich.org/" target="_blank" rel="noopener">Website ↗</a>
+            <a href="https://maps.google.com/?q=Karl-Marx-Straße+66,+12043+Berlin" target="_blank" rel="noopener">Maps ↗</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="venue-card">
+        <a href="https://www.spreefloss.de/" target="_blank" rel="noopener">
+          <div class="venue-img-placeholder">🚤🌊</div>
+        </a>
+        <div class="venue-card-body">
+          <span class="venue-highlight">🌊 Keep the party on the Spree</span>
+          <h4>🚤 <a href="https://www.spreefloss.de/" target="_blank" rel="noopener">Stay on the boat</a></h4>
+          <p>Wilhelminenhofstraße 92, 12459 Berlin · 0 min — you're already here</p>
+          <p>Extend the rental — more water, music & stars. See fleet & photos on Spreefloss.</p>
+          <div class="venue-links">
+            <a href="https://www.spreefloss.de/" target="_blank" rel="noopener">Spreefloss ↗</a>
+            <a href="https://www.spreefloss.de/alleboote" target="_blank" rel="noopener">Our boats ↗</a>
+            <a href="https://maps.google.com/?q=Wilhelminenhofstraße+92,+12459+Berlin" target="_blank" rel="noopener">Maps ↗</a>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <h3>Vote</h3>
+    <form id="poll-form">
+      <label class="poll-option" data-option="meinhaus">
+        <input type="radio" name="afterparty" value="meinhaus">
+        <div>
+          <strong>A — Mein Haus am See</strong>
+          <span>Brunnenstraße 197-198, 10119 Berlin · ~35 min from Spreefloss</span>
+          <span class="poll-links"><a href="https://www.mein-haus-am-see.club/" target="_blank" rel="noopener" onclick="event.stopPropagation()">Website ↗</a></span>
+          <div class="poll-bar-wrap"><div class="poll-bar" id="bar-meinhaus" style="width:0%"></div></div>
+          <small id="count-meinhaus" style="color:var(--mck-muted);">0 votes</small>
+        </div>
+      </label>
+
+      <label class="poll-option" data-option="brlo">
+        <input type="radio" name="afterparty" value="brlo">
+        <div>
+          <strong>B — BRLO Brwhouse</strong>
+          <span>Schöneberger Str. 16, 10963 Berlin · ~30 min from Spreefloss</span>
+          <span class="poll-links"><a href="https://www.brlo.de/gastronomien/brlo-brwhouse" target="_blank" rel="noopener" onclick="event.stopPropagation()">Website ↗</a></span>
+          <div class="poll-bar-wrap"><div class="poll-bar" id="bar-brlo" style="width:0%"></div></div>
+          <small id="count-brlo" style="color:var(--mck-muted);">0 votes</small>
+        </div>
+      </label>
+
+      <label class="poll-option" data-option="klunkerkranich">
+        <input type="radio" name="afterparty" value="klunkerkranich">
+        <div>
+          <strong>C — Klunkerkranich</strong>
+          <span>Karl-Marx-Straße 66, 12043 Berlin · ~25 min from Spreefloss</span>
+          <span class="poll-links"><a href="https://klunkerkranich.org/" target="_blank" rel="noopener" onclick="event.stopPropagation()">Website ↗</a></span>
+          <div class="poll-bar-wrap"><div class="poll-bar" id="bar-klunkerkranich" style="width:0%"></div></div>
+          <small id="count-klunkerkranich" style="color:var(--mck-muted);">0 votes</small>
+        </div>
+      </label>
+
+      <label class="poll-option" data-option="boat">
+        <input type="radio" name="afterparty" value="boat">
+        <div>
+          <strong>D — Stay on the boat</strong>
+          <span>Wilhelminenhofstraße 92, 12459 Berlin · extend rental, no travel</span>
+          <span class="poll-links"><a href="https://www.spreefloss.de/" target="_blank" rel="noopener" onclick="event.stopPropagation()">Spreefloss ↗</a></span>
+          <div class="poll-bar-wrap"><div class="poll-bar" id="bar-boat" style="width:0%"></div></div>
+          <small id="count-boat" style="color:var(--mck-muted);">0 votes</small>
+        </div>
+      </label>
+
+      <label class="poll-option" data-option="hotel">
+        <input type="radio" name="afterparty" value="hotel">
+        <div>
+          <strong>E — Straight to hotel</strong>
+          <span>Skip after-party</span>
+          <div class="poll-bar-wrap"><div class="poll-bar" id="bar-hotel" style="width:0%"></div></div>
+          <small id="count-hotel" style="color:var(--mck-muted);">0 votes</small>
+        </div>
+      </label>
+
+      <label class="poll-option" data-option="suggest">
+        <input type="radio" name="afterparty" value="suggest">
+        <div>
+          <strong>F — Suggest somewhere else</strong>
+          <span>Got a spot in mind? Tell us where you'd like to go.</span>
+          <input type="text" id="poll-suggest-input" class="poll-suggest-input" placeholder="e.g. House of Weekend, Bar Tausend…" onclick="event.stopPropagation()">
+          <div class="poll-bar-wrap"><div class="poll-bar" id="bar-suggest" style="width:0%"></div></div>
+          <small id="count-suggest" style="color:var(--mck-muted);">0 votes</small>
+        </div>
+      </label>
+
+      <button type="submit" class="btn">Submit</button>
+    </form>
+
+    <div id="poll-thanks" class="callout" style="display:none;margin-top:1.5rem;">
+      <strong>Vote recorded.</strong> Vote by Thu 10 Sep.
+    </div>
+
+    <h3 style="margin-top:2rem;">Results</h3>
+    <div id="results-summary" class="card">
+      <p id="total-votes" style="font-size:1.1rem;font-weight:600;color:var(--mck-navy);">Total: 0</p>
+      <p id="leading-option" style="color:var(--mck-muted);margin-top:0.5rem;">No votes yet.</p>
+      <div id="suggestions-list" style="display:none;margin-top:1rem;">
+        <p style="font-weight:600;color:var(--mck-navy);margin-bottom:0.35rem;">Suggested venues</p>
+        <ul id="suggestions-ul" style="margin:0;padding-left:1.25rem;color:var(--mck-muted);font-size:0.92rem;"></ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== TRAVEL ========== -->
+  <section id="travel" class="section">
+    <h2>Travel</h2>
+    <p class="section-intro">Spreefloss · Wilhelminenhofstraße 92, 12459 Berlin. Taxi recommended.</p>
+
+    <div class="callout">
+      <a href="https://maps.google.com/?q=Wilhelminenhofstraße+92,+12459+Berlin" target="_blank">Google Maps →</a>
+    </div>
+
+    <div class="map-wrap">
+      <iframe
+        src="https://maps.google.com/maps?q=Wilhelminenhofstraße+92,+12459+Berlin&output=embed"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        title="Map to Spreefloss marina">
+      </iframe>
+    </div>
+
+    <h3>Taxi / Uber</h3>
+    <div class="card-grid">
+      <div class="card">
+        <h4>From BER Airport</h4>
+        <p>~35–50 min · €45–65</p>
+      </div>
+      <div class="card">
+        <h4>From McKinsey Berlin</h4>
+        <p>Budapester Str. 46 · ~25–35 min · €30–45</p>
+      </div>
+      <div class="card">
+        <h4>Tip</h4>
+        <p>Arrive by 13:00. Boat leaves 13:30.</p>
+      </div>
+    </div>
+
+    <h3 style="margin-top:2rem;">Public transport</h3>
+
+    <table>
+      <thead>
+        <tr><th>From</th><th>Route</th><th>~Duration</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>BER</strong></td>
+          <td>FEX/RB → Ostkreuz → S9 Schöneweide → 15 min walk</td>
+          <td>~45–55 min</td>
+        </tr>
+        <tr>
+          <td><strong>McKinsey Berlin</strong></td>
+          <td>U1 Warschauer Str → S5/S7 Ostkreuz → S9 Schöneweide → 15 min walk</td>
+          <td>~40 min</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- ========== HOTELS ========== -->
+  <section id="hotels" class="section">
+    <h2>Hotels</h2>
+    <p class="section-intro">Checkout Sat morning. Distances by taxi. Ref: McKinsey Berlin (Budapester Str. 46) · Spreefloss.</p>
+
+    <h3>Marriott Bonvoy</h3>
+    <table>
+      <thead>
+        <tr><th>Hotel</th><th>To McKinsey Berlin Office</th><th>To Spreefloss</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>JW Marriott Hotel Berlin</strong></td><td>~20 min</td><td>~25 min</td></tr>
+        <tr><td><strong>Berlin Marriott Hotel</strong></td><td>~15 min</td><td>~30 min</td></tr>
+        <tr><td><strong>Courtyard by Marriott Berlin City Center</strong></td><td>~20 min</td><td>~25 min</td></tr>
+        <tr><td><strong>AC Hotel Berlin Humboldthain</strong></td><td>~20 min</td><td>~30 min</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Hilton</h3>
+    <table>
+      <thead>
+        <tr><th>Hotel</th><th>To McKinsey Berlin Office</th><th>To Spreefloss</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Hilton Berlin</strong></td><td>~15 min</td><td>~30 min</td></tr>
+        <tr><td><strong>DoubleTree by Hilton Berlin Ku'damm</strong></td><td>~5 min (walking distance)</td><td>~30 min</td></tr>
+        <tr><td><strong>Hampton by Hilton Berlin City Centre</strong></td><td>~20 min</td><td>~25 min</td></tr>
+        <tr><td><strong>Homewood Suites by Hilton Berlin</strong></td><td>~20 min</td><td>~15 min</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Hyatt</h3>
+    <table>
+      <thead>
+        <tr><th>Hotel</th><th>To McKinsey Berlin Office</th><th>To Spreefloss</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Hyatt Regency Berlin</strong></td><td>~10 min</td><td>~25 min</td></tr>
+        <tr><td><strong>Andaz Berlin</strong></td><td>~5 min</td><td>~30 min</td></tr>
+        <tr><td><strong>Hyatt Place Berlin City East</strong></td><td>~20 min</td><td>~15 min</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- ========== CONTACT ========== -->
+  <section id="contact" class="section">
+    <h2>Contact</h2>
+    <p class="section-intro">Questions? Reach Penny or Clemens.</p>
+
+    <div class="contact-card">
+      <div class="contact-names">Penny & Clemens</div>
+      <p>Slack / email · day-of: call/text</p>
+    </div>
+
+    <div class="callout" style="margin-top:1.5rem;">
+      Spreefloss: 0157 73660077 · Wilhelminenhofstraße 92, 12459 Berlin
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  Late Summer Party on Boat · 18 Sep 2026 · Spreefloss, Berlin
+</footer>
+
+<script>
+  // Navigation
+  const navBtns = document.querySelectorAll('.nav-btn');
+  const sections = document.querySelectorAll('.section');
+
+  navBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const target = btn.dataset.section;
+      navBtns.forEach(b => b.classList.remove('active'));
+      sections.forEach(s => s.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById(target).classList.add('active');
+    });
+  });
+
+  // After-party poll (localStorage)
+  const POLL_KEY = 'spreefloss_afterparty_votes';
+  const OPTIONS = ['meinhaus', 'brlo', 'klunkerkranich', 'boat', 'hotel', 'suggest'];
+  const LABELS = {
+    meinhaus: 'Mein Haus am See',
+    brlo: 'BRLO Brwhouse',
+    klunkerkranich: 'Klunkerkranich Rooftop',
+    boat: 'Stay on the boat',
+    hotel: 'Straight to hotel',
+    suggest: 'Suggested venue'
+  };
+
+  function parseVote(v) {
+    if (typeof v === 'string' && v.startsWith('suggest:')) {
+      return { option: 'suggest', text: v.slice(8) };
+    }
+    return { option: v, text: null };
+  }
+
+  function getVotes() {
+    try {
+      return JSON.parse(localStorage.getItem(POLL_KEY)) || {};
+    } catch { return {}; }
+  }
+
+  function saveVote(option, suggestText) {
+    const votes = getVotes();
+    const voterId = 'voter_' + Date.now();
+    votes[voterId] = option === 'suggest' ? 'suggest:' + suggestText.trim() : option;
+    localStorage.setItem(POLL_KEY, JSON.stringify(votes));
+  }
+
+  function tallyVotes() {
+    const votes = getVotes();
+    const counts = {};
+    const suggestions = [];
+    OPTIONS.forEach(o => counts[o] = 0);
+    Object.values(votes).forEach(v => {
+      const parsed = parseVote(v);
+      if (parsed.option === 'suggest') {
+        counts.suggest++;
+        if (parsed.text) suggestions.push(parsed.text);
+      } else if (counts[parsed.option] !== undefined) {
+        counts[parsed.option]++;
+      }
+    });
+    return { counts, suggestions };
+  }
+
+  function renderResults() {
+    const { counts, suggestions } = tallyVotes();
+    const total = Object.values(counts).reduce((a, b) => a + b, 0);
+
+    OPTIONS.forEach(opt => {
+      const pct = total ? (counts[opt] / total * 100) : 0;
+      const bar = document.getElementById('bar-' + opt);
+      const countEl = document.getElementById('count-' + opt);
+      if (bar) bar.style.width = pct + '%';
+      if (countEl) countEl.textContent = counts[opt] + ' vote' + (counts[opt] !== 1 ? 's' : '') + (total ? ' (' + pct.toFixed(0) + '%)' : '');
+    });
+
+    document.getElementById('total-votes').textContent = 'Total: ' + total;
+    const leading = Object.entries(counts).sort((a, b) => b[1] - a[1])[0];
+    const leadingEl = document.getElementById('leading-option');
+    if (total === 0) {
+      leadingEl.textContent = 'No votes yet.';
+    } else {
+      leadingEl.textContent = 'Leader: ' + LABELS[leading[0]] + ' (' + leading[1] + '). Due Thu 10 Sep.';
+    }
+
+    const listWrap = document.getElementById('suggestions-list');
+    const listEl = document.getElementById('suggestions-ul');
+    if (suggestions.length) {
+      listWrap.style.display = 'block';
+      listEl.innerHTML = suggestions.map(s => '<li>' + esc(s) + '</li>').join('');
+    } else {
+      listWrap.style.display = 'none';
+      listEl.innerHTML = '';
+    }
+  }
+
+  document.getElementById('poll-form').addEventListener('submit', e => {
+    e.preventDefault();
+    const selected = document.querySelector('input[name="afterparty"]:checked');
+    if (!selected) { alert('Pick an option.'); return; }
+    if (selected.value === 'suggest') {
+      const text = document.getElementById('poll-suggest-input').value.trim();
+      if (!text) { alert("Tell us where you'd like to go."); return; }
+      saveVote('suggest', text);
+    } else {
+      saveVote(selected.value);
+    }
+    document.getElementById('poll-thanks').style.display = 'block';
+    renderResults();
+  });
+
+  document.querySelectorAll('#poll-form .poll-option').forEach(label => {
+    label.addEventListener('click', () => {
+      document.querySelectorAll('#poll-form .poll-option').forEach(l => l.classList.remove('selected'));
+      label.classList.add('selected');
+      if (label.dataset.option === 'suggest') {
+        document.getElementById('poll-suggest-input').focus();
+      }
+    });
+  });
+
+  renderResults();
+
+  // Food vote (localStorage)
+  const FOOD_KEY = 'spreefloss_food_votes';
+  const HELP_LABELS = { early: 'Logistics ~13:00' };
+  const DIET_LABELS = {
+    omnivore: '🥩 Omnivore',
+    vegetarian: '🥗 Vegetarian',
+    vegan: '🌱 Vegan',
+    other: 'Other'
+  };
+
+  function getFoodVotes() {
+    try { return JSON.parse(localStorage.getItem(FOOD_KEY)) || {}; }
+    catch { return {}; }
+  }
+
+  function saveFoodVote(entry) {
+    const votes = getFoodVotes();
+    votes[entry.name.toLowerCase().trim()] = entry;
+    localStorage.setItem(FOOD_KEY, JSON.stringify(votes));
+  }
+
+  function renderFoodSummary() {
+    const votes = getFoodVotes();
+    const entries = Object.values(votes);
+    const tbody = document.getElementById('food-summary-body');
+    const statsEl = document.getElementById('food-stats');
+
+    if (entries.length === 0) {
+      tbody.innerHTML = '<tr><td colspan="5" style="color:var(--mck-muted);">No responses yet.</td></tr>';
+      statsEl.innerHTML = '';
+      document.getElementById('roster-early').textContent = '—';
+      return;
+    }
+
+    const diets = { omnivore: 0, vegetarian: 0, vegan: 0, other: 0 };
+    entries.forEach(e => { if (diets[e.diet] !== undefined) diets[e.diet]++; });
+
+    statsEl.innerHTML =
+      '<span class="summary-stat">' + entries.length + ' responses</span>' +
+      '<span class="summary-stat">' + diets.omnivore + ' omnivore</span>' +
+      '<span class="summary-stat">' + diets.vegetarian + ' vegetarian</span>' +
+      '<span class="summary-stat">' + diets.vegan + ' vegan</span>' +
+      (diets.other ? '<span class="summary-stat">' + diets.other + ' other</span>' : '');
+
+    tbody.innerHTML = entries.map(e => {
+      const early = (e.help || []).includes('early') ? '✓ 🦸' : '—';
+      return '<tr><td><strong>' + esc(e.name) + '</strong></td><td>' + (DIET_LABELS[e.diet] || e.diet) +
+        '</td><td>' + esc(e.prefs || '—') + '</td><td>' + esc(e.bring || '—') +
+        '</td><td>' + early + '</td></tr>';
+    }).join('');
+
+    const earlyVolunteers = entries.filter(e => (e.help || []).includes('early')).map(e => e.name);
+    document.getElementById('roster-early').textContent = earlyVolunteers.length
+      ? earlyVolunteers.join(', ') + ' 🎉'
+      : 'None yet — tick the box if you can help :D';
+  }
+
+  function esc(s) {
+    const d = document.createElement('div');
+    d.textContent = s;
+    return d.innerHTML;
+  }
+
+  document.getElementById('food-form').addEventListener('submit', e => {
+    e.preventDefault();
+    const diet = document.querySelector('input[name="diet"]:checked');
+    if (!diet) { alert('Select your diet.'); return; }
+    const help = [...document.querySelectorAll('input[name="help"]:checked')].map(c => c.value);
+    const entry = {
+      name: document.getElementById('food-name').value.trim(),
+      diet: diet.value,
+      prefs: document.getElementById('food-prefs').value.trim(),
+      bring: document.getElementById('food-bring').value.trim(),
+      help
+    };
+    saveFoodVote(entry);
+    document.getElementById('food-thanks').style.display = 'block';
+    renderFoodSummary();
+  });
+
+  renderFoodSummary();
+</script>
+
+</body>
+</html>
