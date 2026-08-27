@@ -968,23 +968,6 @@
           </div>
         </div>
       </article>
-
-      <article class="venue-card">
-        <a href="https://www.spreefloss.de/" target="_blank" rel="noopener">
-          <div class="venue-img-placeholder">🚤🌊</div>
-        </a>
-        <div class="venue-card-body">
-          <span class="venue-highlight">🌊 Keep the vibe on the Spree</span>
-          <h4>🚤 <a href="https://www.spreefloss.de/" target="_blank" rel="noopener">Stay on the boat / Spree</a></h4>
-          <p>Wilhelminenhofstraße 92, 12459 Berlin · 0 min — you're already here</p>
-          <p>Extend past 21:00 or wind down by the water instead of heading into town.</p>
-          <div class="venue-links">
-            <a href="https://www.spreefloss.de/" target="_blank" rel="noopener">Spreefloss ↗</a>
-            <a href="https://www.spreefloss.de/alleboote" target="_blank" rel="noopener">Our boats ↗</a>
-            <a href="https://maps.google.com/?q=Wilhelminenhofstraße+92,+12459+Berlin" target="_blank" rel="noopener">Maps ↗</a>
-          </div>
-        </div>
-      </article>
     </div>
 
     <h3>Vote</h3>
@@ -1022,21 +1005,10 @@
         </div>
       </label>
 
-      <label class="poll-option" data-option="boat">
-        <input type="radio" name="afterparty" value="boat">
-        <div>
-          <strong>D — Stay on the boat / Spree</strong>
-          <span>Wilhelminenhofstraße 92, 12459 Berlin · extend past 21:00 or wind down by the water</span>
-          <span class="poll-links"><a href="https://www.spreefloss.de/" target="_blank" rel="noopener" onclick="event.stopPropagation()">Spreefloss ↗</a></span>
-          <div class="poll-bar-wrap"><div class="poll-bar" id="bar-boat" style="width:0%"></div></div>
-          <small id="count-boat" style="color:var(--muted);">0 votes</small>
-        </div>
-      </label>
-
       <label class="poll-option" data-option="hotel">
         <input type="radio" name="afterparty" value="hotel">
         <div>
-          <strong>E — Straight to hotel</strong>
+          <strong>D — Straight to hotel</strong>
           <span>Skip after-party</span>
           <div class="poll-bar-wrap"><div class="poll-bar" id="bar-hotel" style="width:0%"></div></div>
           <small id="count-hotel" style="color:var(--muted);">0 votes</small>
@@ -1046,7 +1018,7 @@
       <label class="poll-option" data-option="suggest">
         <input type="radio" name="afterparty" value="suggest">
         <div>
-          <strong>F — Suggest somewhere else</strong>
+          <strong>E — Suggest somewhere else</strong>
           <span>Got a spot in mind? Tell us where you'd like to go.</span>
           <input type="text" id="poll-suggest-input" class="poll-suggest-input" placeholder="e.g. House of Weekend, Bar Tausend…" onclick="event.stopPropagation()">
           <div class="poll-bar-wrap"><div class="poll-bar" id="bar-suggest" style="width:0%"></div></div>
@@ -1075,7 +1047,7 @@
   <!-- ========== TRAVEL ========== -->
   <section id="travel" class="section">
     <h2>Travel</h2>
-    <p class="section-intro">Spreefloss · Wilhelminenhofstraße 92, 12459 Berlin. Taxi recommended. Having trouble with travel or other logistics? Let Penny & Clemens know — we're happy to help.</p>
+    <p class="section-intro">Spreefloss · Wilhelminenhofstraße 92, 12459 Berlin. Taxi recommended. Having trouble with travel or other logistics? Let us know — we're happy to help.</p>
 
     <div class="callout">
       <a href="https://maps.google.com/?q=Wilhelminenhofstraße+92,+12459+Berlin" target="_blank">Google Maps →</a>
@@ -1178,13 +1150,13 @@
     <h2>Contact & Escalation Path</h2>
     <p class="section-intro">
       Questions, dietary requirements, travel woes, logistics issues, playlist submissions, or existential concerns about boating —
-      Penny & Clemens have you covered. If anything about getting there, timing, or plans on the day isn't working — let us know.
+      we've got you covered. If anything about getting there, timing, or plans on the day isn't working — let us know.
     </p>
 
     <div class="contact-card">
       <h3>Event leads</h3>
       <div class="contact-names">Penny & Clemens</div>
-      <p>Your contacts for the Late Summer Party on Boat</p>
+      <p>We're your contacts for the Late Summer Party on Boat</p>
       <p style="margin-top:1.25rem;font-size:0.95rem;line-height:1.85;">
         💬 Team Slack / email<br>
         📱 Penny (day-of): call/text directly<br>
@@ -1218,7 +1190,7 @@
     </div>
 
     <div class="framework-box" style="margin-top:1.5rem;">
-      <strong>Response SLA:</strong> Penny & Clemens aim for <em>&lt;24h</em> on non-urgent messages.
+      <strong>Response SLA:</strong> We aim for <em>&lt;24h</em> on non-urgent messages.
       Day-of (18 Sep): <em>&lt;5 min</em> — we'll be at the marina from ~13:00 anyway.
     </div>
 
@@ -1258,12 +1230,11 @@
 
   // After-party poll (localStorage)
   const POLL_KEY = 'spreefloss_afterparty_votes';
-  const OPTIONS = ['meinhaus', 'brlo', 'klunkerkranich', 'boat', 'hotel', 'suggest'];
+  const OPTIONS = ['meinhaus', 'brlo', 'klunkerkranich', 'hotel', 'suggest'];
   const LABELS = {
     meinhaus: 'Mein Haus am See',
     brlo: 'BRLO Brwhouse',
     klunkerkranich: 'Klunkerkranich Rooftop',
-    boat: 'Stay on the boat',
     hotel: 'Straight to hotel',
     suggest: 'Suggested venue'
   };
