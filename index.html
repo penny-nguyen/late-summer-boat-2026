@@ -4,87 +4,139 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Late Summer Party on Boat — Berlin, 18 Sep 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,600;0,9..40,700;1,9..40,400&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --mck-navy: #051c2c;
-      --mck-blue: #0066cc;
-      --mck-teal: #00a9ce;
-      --mck-light: #f4f7fa;
-      --mck-gold: #c4a35a;
-      --mck-text: #1a1a1a;
-      --mck-muted: #5a6472;
-      --shadow: 0 4px 24px rgba(5, 28, 44, 0.12);
-      --radius: 8px;
+      --ocean-deep: #0b3d5c;
+      --ocean-mid: #1a6b8a;
+      --ocean-bright: #2eb8d4;
+      --sky: #87ceeb;
+      --sunset: #ff8c69;
+      --sunset-gold: #ffb347;
+      --sand: #fff8f0;
+      --sand-dark: #f5e6d3;
+      --coral: #ff6b6b;
+      --foam: #e8f7fa;
+      --text: #1a3344;
+      --muted: #5a7080;
+      --white: #ffffff;
+      --shadow: 0 8px 32px rgba(11, 61, 92, 0.12);
+      --shadow-lg: 0 16px 48px rgba(11, 61, 92, 0.18);
+      --radius: 16px;
+      --radius-sm: 10px;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
-      font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
-      background: var(--mck-light);
-      color: var(--mck-text);
+      font-family: "DM Sans", "Segoe UI", sans-serif;
+      background: linear-gradient(180deg, #dff4ff 0%, var(--sand) 35%, #fff5eb 100%);
+      background-attachment: fixed;
+      color: var(--text);
       line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-image:
+        radial-gradient(circle at 15% 20%, rgba(255, 179, 71, 0.15) 0%, transparent 40%),
+        radial-gradient(circle at 85% 10%, rgba(46, 184, 212, 0.12) 0%, transparent 35%);
+      pointer-events: none;
+      z-index: 0;
     }
 
     header {
-      background: linear-gradient(135deg, var(--mck-navy) 0%, #0a3d62 100%);
+      position: relative;
+      background: linear-gradient(135deg, var(--ocean-deep) 0%, var(--ocean-mid) 45%, #2a8fae 100%);
       color: #fff;
-      padding: 2rem 1.5rem 1.25rem;
-      border-bottom: 4px solid var(--mck-teal);
+      padding: 2.5rem 1.5rem 3.5rem;
+      overflow: hidden;
     }
 
-    .header-inner { max-width: 1100px; margin: 0 auto; }
+    header::before {
+      content: "⛵";
+      position: absolute;
+      right: 8%;
+      top: 1.5rem;
+      font-size: 4rem;
+      opacity: 0.12;
+      transform: rotate(-8deg);
+    }
+
+    header::after {
+      content: "";
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      right: 0;
+      height: 48px;
+      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 48' preserveAspectRatio='none'%3E%3Cpath fill='%23dff4ff' d='M0 24 Q150 0 300 24 T600 24 T900 24 T1200 24 V48 H0 Z'/%3E%3Cpath fill='%23dff4ff' fill-opacity='0.5' d='M0 32 Q200 12 400 32 T800 32 T1200 32 V48 H0 Z'/%3E%3C/svg%3E") no-repeat bottom center;
+      background-size: 100% 100%;
+    }
+
+    .header-inner { max-width: 1100px; margin: 0 auto; position: relative; z-index: 1; }
 
     .eyebrow {
-      font-size: 0.75rem;
-      letter-spacing: 0.15em;
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
-      color: var(--mck-teal);
+      color: var(--sunset-gold);
       margin-bottom: 0.35rem;
     }
 
     .header-tagline {
       font-size: 0.88rem;
-      opacity: 0.8;
+      opacity: 0.88;
       font-style: italic;
       margin-bottom: 0.75rem;
       max-width: 640px;
     }
 
     header h1 {
-      font-size: clamp(1.5rem, 4vw, 2.2rem);
-      font-weight: 600;
-      margin-bottom: 0.35rem;
+      font-family: "Fraunces", Georgia, serif;
+      font-size: clamp(1.75rem, 5vw, 2.75rem);
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.02em;
+      text-shadow: 0 2px 20px rgba(0,0,0,0.15);
     }
 
     header .subtitle {
       font-size: 1rem;
-      opacity: 0.9;
+      opacity: 0.92;
       max-width: 720px;
     }
 
     .meta-bar {
       display: flex;
       flex-wrap: wrap;
-      gap: 1rem;
-      margin-top: 1.25rem;
-      font-size: 0.9rem;
+      gap: 0.75rem;
+      margin-top: 1.5rem;
+      font-size: 0.88rem;
     }
 
     .meta-pill {
-      background: rgba(255,255,255,0.12);
-      padding: 0.35rem 0.85rem;
+      background: rgba(255,255,255,0.18);
+      backdrop-filter: blur(8px);
+      padding: 0.45rem 1rem;
       border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.2);
+      border: 1px solid rgba(255,255,255,0.28);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
     }
 
     nav {
-      background: #fff;
-      border-bottom: 1px solid #dde3ea;
+      background: rgba(255,255,255,0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(46, 184, 212, 0.2);
       position: sticky;
       top: 0;
       z-index: 100;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      box-shadow: 0 4px 20px rgba(11, 61, 92, 0.06);
     }
 
     .nav-inner {
@@ -99,25 +151,28 @@
     .nav-btn {
       background: none;
       border: none;
-      padding: 0.65rem 1rem;
+      padding: 0.7rem 1.1rem;
       font-size: 0.88rem;
       font-weight: 600;
-      color: var(--mck-muted);
+      color: var(--muted);
       cursor: pointer;
-      border-radius: var(--radius);
-      transition: all 0.2s;
+      border-radius: 999px;
+      transition: all 0.25s;
     }
 
-    .nav-btn:hover { background: var(--mck-light); color: var(--mck-navy); }
+    .nav-btn:hover { background: var(--foam); color: var(--ocean-deep); }
     .nav-btn.active {
-      background: var(--mck-navy);
+      background: linear-gradient(135deg, var(--ocean-mid), var(--ocean-bright));
       color: #fff;
+      box-shadow: 0 4px 14px rgba(26, 107, 138, 0.35);
     }
 
     main {
       max-width: 1100px;
       margin: 0 auto;
       padding: 2rem 1.5rem 4rem;
+      position: relative;
+      z-index: 1;
     }
 
     .section { display: none; animation: fadeIn 0.35s ease; }
@@ -129,35 +184,51 @@
     }
 
     h2 {
-      font-size: 1.5rem;
-      color: var(--mck-navy);
+      font-family: "Fraunces", Georgia, serif;
+      font-size: 1.75rem;
+      color: var(--ocean-deep);
       margin-bottom: 0.5rem;
-      font-weight: 600;
+      font-weight: 700;
+      position: relative;
+      display: inline-block;
+    }
+
+    h2::after {
+      content: "";
+      display: block;
+      height: 4px;
+      width: 60%;
+      margin-top: 0.35rem;
+      border-radius: 2px;
+      background: linear-gradient(90deg, var(--ocean-bright), var(--sunset-gold), transparent);
     }
 
     h3 {
-      font-size: 1.05rem;
-      color: var(--mck-navy);
-      margin: 1.5rem 0 0.75rem;
+      font-family: "Fraunces", Georgia, serif;
+      font-size: 1.15rem;
+      color: var(--ocean-deep);
+      margin: 1.75rem 0 0.85rem;
     }
 
     .section-intro {
-      color: var(--mck-muted);
+      color: var(--muted);
       margin-bottom: 1.5rem;
-      font-size: 0.95rem;
+      font-size: 0.98rem;
+      max-width: 640px;
     }
 
     .callout {
-      background: #fff;
-      border-left: 4px solid var(--mck-teal);
-      padding: 1rem 1.25rem;
+      background: rgba(255,255,255,0.9);
+      border-left: 4px solid var(--ocean-bright);
+      padding: 1.1rem 1.35rem;
       margin: 1.25rem 0;
-      border-radius: 0 var(--radius) var(--radius) 0;
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
       box-shadow: var(--shadow);
+      backdrop-filter: blur(8px);
     }
 
-    .callout.warning { border-left-color: var(--mck-gold); }
-    .callout.urgent { border-left-color: #e74c3c; }
+    .callout.warning { border-left-color: var(--sunset-gold); }
+    .callout.urgent { border-left-color: var(--coral); background: linear-gradient(90deg, #fff5f5, #fff); }
 
     .card-grid {
       display: grid;
@@ -167,17 +238,25 @@
     }
 
     .card {
-      background: #fff;
+      background: rgba(255,255,255,0.92);
       border-radius: var(--radius);
-      padding: 1.25rem;
+      padding: 1.35rem;
       box-shadow: var(--shadow);
-      border: 1px solid #e8edf2;
+      border: 1px solid rgba(46, 184, 212, 0.15);
+      backdrop-filter: blur(8px);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-lg);
     }
 
     .card h4 {
-      color: var(--mck-blue);
+      color: var(--ocean-mid);
       font-size: 0.95rem;
       margin-bottom: 0.5rem;
+      font-weight: 700;
     }
 
     .card ul { padding-left: 1.2rem; font-size: 0.92rem; }
@@ -201,13 +280,13 @@
     }
 
     th {
-      background: var(--mck-navy);
+      background: linear-gradient(135deg, var(--ocean-deep), var(--ocean-mid));
       color: #fff;
       font-weight: 600;
     }
 
     tr:last-child td { border-bottom: none; }
-    tr:hover td { background: #f8fafc; }
+    tr:hover td { background: var(--foam); }
 
     .timeline { position: relative; padding-left: 1.5rem; }
 
@@ -215,7 +294,7 @@
       position: relative;
       padding-bottom: 1.5rem;
       padding-left: 1.5rem;
-      border-left: 2px solid var(--mck-teal);
+      border-left: 2px solid var(--ocean-bright);
     }
 
     .timeline-item:last-child { border-left-color: transparent; padding-bottom: 0; }
@@ -227,53 +306,58 @@
       top: 4px;
       width: 12px;
       height: 12px;
-      background: var(--mck-teal);
+      background: var(--ocean-bright);
       border-radius: 50%;
       border: 2px solid #fff;
-      box-shadow: 0 0 0 2px var(--mck-teal);
+      box-shadow: 0 0 0 2px var(--ocean-bright);
     }
 
     .time-label {
       font-weight: 700;
-      color: var(--mck-blue);
+      color: var(--ocean-mid);
       font-size: 0.88rem;
     }
 
     .tag {
       display: inline-block;
-      background: var(--mck-light);
-      color: var(--mck-navy);
+      background: var(--foam);
+      color: var(--ocean-deep);
       font-size: 0.75rem;
       font-weight: 600;
       padding: 0.2rem 0.55rem;
-      border-radius: 4px;
+      border-radius: 999px;
       margin-right: 0.35rem;
       margin-top: 0.35rem;
     }
 
-    .tag.must { background: #fff3cd; color: #856404; }
-    .tag.fun { background: #d4edda; color: #155724; }
+    .tag.must { background: #fff3e0; color: #e65100; }
+    .tag.fun { background: #e8f5e9; color: #2e7d32; }
 
     .poll-option {
-      background: #fff;
-      border: 2px solid #e8edf2;
+      background: rgba(255,255,255,0.95);
+      border: 2px solid rgba(46, 184, 212, 0.2);
       border-radius: var(--radius);
-      padding: 1rem 1.25rem;
-      margin-bottom: 0.75rem;
+      padding: 1.15rem 1.35rem;
+      margin-bottom: 0.85rem;
       cursor: pointer;
-      transition: all 0.2s;
+      transition: all 0.25s;
       display: flex;
       align-items: flex-start;
       gap: 0.75rem;
+      box-shadow: 0 2px 12px rgba(11, 61, 92, 0.04);
     }
 
-    .poll-option:hover { border-color: var(--mck-blue); }
-    .poll-option.selected { border-color: var(--mck-teal); background: #f0fbff; }
+    .poll-option:hover { border-color: var(--ocean-bright); transform: translateX(4px); }
+    .poll-option.selected {
+      border-color: var(--ocean-bright);
+      background: linear-gradient(135deg, #f0fbff, #fff8f0);
+      box-shadow: 0 4px 20px rgba(46, 184, 212, 0.15);
+    }
 
-    .poll-option input { margin-top: 0.25rem; accent-color: var(--mck-teal); }
+    .poll-option input { margin-top: 0.25rem; accent-color: var(--ocean-bright); }
 
-    .poll-option strong { display: block; color: var(--mck-navy); }
-    .poll-option span { font-size: 0.88rem; color: var(--mck-muted); }
+    .poll-option strong { display: block; color: var(--ocean-deep); }
+    .poll-option span { font-size: 0.88rem; color: var(--muted); }
 
     .poll-suggest-input {
       display: block;
@@ -288,51 +372,78 @@
 
     .poll-suggest-input:focus {
       outline: none;
-      border-color: var(--mck-teal);
-      box-shadow: 0 0 0 2px rgba(0, 150, 136, 0.15);
+      border-color: var(--ocean-bright);
+      box-shadow: 0 0 0 3px rgba(46, 184, 212, 0.2);
     }
 
     .poll-bar-wrap {
       height: 8px;
-      background: #e8edf2;
-      border-radius: 4px;
+      background: var(--sand-dark);
+      border-radius: 999px;
       margin-top: 0.5rem;
       overflow: hidden;
     }
 
     .poll-bar {
       height: 100%;
-      background: linear-gradient(90deg, var(--mck-blue), var(--mck-teal));
-      border-radius: 4px;
+      background: linear-gradient(90deg, var(--ocean-bright), var(--sunset-gold));
+      border-radius: 999px;
       transition: width 0.5s ease;
     }
 
     .btn {
-      background: var(--mck-navy);
+      background: linear-gradient(135deg, var(--ocean-mid), var(--ocean-bright));
       color: #fff;
       border: none;
-      padding: 0.75rem 1.5rem;
-      font-size: 0.92rem;
-      font-weight: 600;
-      border-radius: var(--radius);
+      padding: 0.85rem 1.75rem;
+      font-size: 0.95rem;
+      font-weight: 700;
+      border-radius: 999px;
       cursor: pointer;
       margin-top: 1rem;
-      transition: background 0.2s;
+      transition: all 0.25s;
+      box-shadow: 0 4px 16px rgba(26, 107, 138, 0.35);
     }
 
-    .btn:hover { background: var(--mck-blue); }
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 24px rgba(26, 107, 138, 0.45);
+    }
 
     .contact-card {
-      background: linear-gradient(135deg, var(--mck-navy), #0a3d62);
+      background: linear-gradient(135deg, var(--ocean-deep), var(--ocean-mid));
       color: #fff;
       border-radius: var(--radius);
-      padding: 2rem;
+      padding: 2.25rem;
       text-align: center;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .contact-card h3 { color: var(--sunset-gold); margin-top: 0; }
+    .contact-card p { opacity: 0.92; margin: 0.5rem 0; }
+
+    .contact-card a {
+      color: var(--sunset-gold);
+      text-decoration: underline;
+    }
+
+    .contact-card a:hover { color: #fff; }
+
+    .framework-box {
+      background: rgba(255,255,255,0.92);
+      border: 2px dashed var(--sunset-gold);
+      border-radius: var(--radius-sm);
+      padding: 1.1rem 1.35rem;
+      margin: 1rem 0;
+      font-size: 0.92rem;
       box-shadow: var(--shadow);
     }
 
-    .contact-card h3 { color: var(--mck-teal); margin-top: 0; }
-    .contact-card p { opacity: 0.9; margin: 0.5rem 0; }
+    .framework-box em {
+      color: var(--ocean-mid);
+      font-style: normal;
+      font-weight: 700;
+    }
 
     .contact-names {
       font-size: 1.4rem;
@@ -342,24 +453,17 @@
 
     footer {
       text-align: center;
-      padding: 2rem;
-      font-size: 0.8rem;
-      color: var(--mck-muted);
-      border-top: 1px solid #dde3ea;
+      padding: 2.5rem 2rem;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-top: 1px solid rgba(46, 184, 212, 0.15);
+      background: rgba(255,255,255,0.5);
+      position: relative;
+      z-index: 1;
     }
 
-    .framework-box {
-      background: #fff;
-      border: 1px dashed var(--mck-gold);
-      border-radius: var(--radius);
-      padding: 1rem 1.25rem;
-      margin: 1rem 0;
-      font-size: 0.9rem;
-    }
-
-    .framework-box em { color: var(--mck-gold); font-style: normal; font-weight: 600; }
-
-    a { color: var(--mck-blue); }
+    a { color: var(--ocean-mid); font-weight: 600; }
+    a:hover { color: var(--ocean-bright); }
 
     .map-wrap {
       border-radius: var(--radius);
@@ -384,7 +488,7 @@
       display: block;
       font-weight: 600;
       font-size: 0.88rem;
-      color: var(--mck-navy);
+      color: var(--ocean-deep);
       margin-bottom: 0.35rem;
     }
 
@@ -421,7 +525,7 @@
       border: 1px solid #e8edf2;
     }
 
-    .checkbox-grid input { accent-color: var(--mck-teal); }
+    .checkbox-grid input { accent-color: var(--ocean-bright); }
 
     .diet-options {
       display: flex;
@@ -444,13 +548,14 @@
 
     .summary-stat {
       display: inline-block;
-      background: var(--mck-navy);
+      background: linear-gradient(135deg, var(--ocean-mid), var(--ocean-bright));
       color: #fff;
-      padding: 0.4rem 0.85rem;
+      padding: 0.45rem 0.95rem;
       border-radius: 999px;
       font-size: 0.85rem;
       font-weight: 600;
       margin: 0.25rem 0.35rem 0.25rem 0;
+      box-shadow: 0 2px 8px rgba(26, 107, 138, 0.25);
     }
 
     .carpool-row td input {
@@ -469,16 +574,19 @@
     }
 
     .emoji-item {
-      background: #fff;
-      border-radius: var(--radius);
-      padding: 0.85rem;
+      background: linear-gradient(180deg, #fff, var(--foam));
+      border-radius: var(--radius-sm);
+      padding: 1rem;
       text-align: center;
-      border: 1px solid #e8edf2;
+      border: 1px solid rgba(46, 184, 212, 0.2);
       font-size: 0.88rem;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      box-shadow: 0 2px 10px rgba(11, 61, 92, 0.05);
+      transition: transform 0.2s;
     }
 
-    .emoji-item .icon { font-size: 1.75rem; display: block; margin-bottom: 0.35rem; }
+    .emoji-item:hover { transform: scale(1.03); }
+
+    .emoji-item .icon { font-size: 2rem; display: block; margin-bottom: 0.4rem; }
 
     .bring-list {
       display: flex;
@@ -488,20 +596,15 @@
     }
 
     .bring-chip {
-      background: #fff;
-      border: 1px solid #e8edf2;
-      padding: 0.4rem 0.75rem;
+      background: linear-gradient(135deg, #fff8f0, #fff);
+      border: 1px solid rgba(255, 179, 71, 0.35);
+      padding: 0.45rem 0.85rem;
       border-radius: 999px;
       font-size: 0.85rem;
+      transition: transform 0.15s;
     }
 
-    .logistics-box {
-      background: linear-gradient(135deg, #f0fbff, #fff);
-      border: 2px solid var(--mck-teal);
-      border-radius: var(--radius);
-      padding: 1rem 1.25rem;
-      margin: 1rem 0;
-    }
+    .bring-chip:hover { transform: translateY(-1px); }
 
     .venue-showcase {
       display: grid;
@@ -511,11 +614,11 @@
     }
 
     .venue-card {
-      background: #fff;
+      background: rgba(255,255,255,0.95);
       border-radius: var(--radius);
       overflow: hidden;
       box-shadow: var(--shadow);
-      border: 1px solid #e8edf2;
+      border: 1px solid rgba(46, 184, 212, 0.15);
     }
 
     .venue-card img {
@@ -528,40 +631,67 @@
     .venue-card-body { padding: 1rem 1.15rem; }
 
     .venue-card-body h4 {
-      color: var(--mck-navy);
+      color: var(--ocean-deep);
       font-size: 1rem;
       margin-bottom: 0.35rem;
     }
 
     .venue-highlight {
       display: inline-block;
-      background: var(--mck-light);
-      color: var(--mck-blue);
+      background: linear-gradient(135deg, var(--foam), #fff8f0);
+      color: var(--ocean-mid);
       font-size: 0.75rem;
       font-weight: 600;
-      padding: 0.2rem 0.55rem;
-      border-radius: 4px;
+      padding: 0.25rem 0.65rem;
+      border-radius: 999px;
       margin-bottom: 0.5rem;
     }
 
     .venue-card-body p {
       font-size: 0.85rem;
-      color: var(--mck-muted);
+      color: var(--muted);
       margin: 0.25rem 0;
     }
 
     .section-hero {
-      font-size: 2.5rem;
+      font-size: 2.75rem;
       text-align: center;
-      margin: 0.5rem 0 1rem;
-      letter-spacing: 0.05em;
+      margin: 0.25rem 0 1.25rem;
+      letter-spacing: 0.08em;
+      padding: 1rem;
+      background: linear-gradient(135deg, rgba(255,255,255,0.7), rgba(232, 247, 250, 0.9));
+      border-radius: var(--radius);
+      border: 1px dashed rgba(46, 184, 212, 0.3);
+      animation: float 4s ease-in-out infinite;
     }
 
-    .venue-card h4 a { color: var(--mck-navy); text-decoration: none; }
-    .venue-card h4 a:hover { color: var(--mck-blue); text-decoration: underline; }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-4px); }
+    }
 
-    .venue-card { transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s; }
-    .venue-card:hover { border-color: var(--mck-teal); transform: translateY(-3px); box-shadow: 0 8px 28px rgba(5, 28, 44, 0.15); }
+    .section-badge {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--sunset-gold), var(--sunset));
+      color: #fff;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.3rem 0.75rem;
+      border-radius: 999px;
+      margin-bottom: 0.75rem;
+    }
+
+    .venue-card h4 a { color: var(--ocean-deep); text-decoration: none; }
+    .venue-card h4 a:hover { color: var(--ocean-bright); text-decoration: underline; }
+
+    .venue-card { transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s; }
+    .venue-card:hover {
+      border-color: var(--ocean-bright);
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+    }
 
     .venue-card > a { display: block; }
     .venue-card > a:hover img { opacity: 0.92; }
@@ -574,7 +704,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      background: linear-gradient(135deg, #e3f2fd, #f0fbff);
+      background: linear-gradient(135deg, #b8e6f5, #dff4ff, #fff8f0);
       font-size: 3rem;
     }
 
@@ -605,8 +735,9 @@
     <h1>Late Summer Party on Boat</h1>
     <div class="meta-bar">
       <span class="meta-pill">📅 Fri, 18 Sep 2026</span>
-      <span class="meta-pill">⏰ 13:30 – 17:30 CET</span>
+      <span class="meta-pill">⏰ 13:30 – 21:00 CET</span>
       <span class="meta-pill">🚤 Spreefloss, Berlin</span>
+      <span class="meta-pill">🌅 After-party vote → 21:00+</span>
     </div>
   </div>
 </header>
@@ -625,9 +756,10 @@
 
   <!-- ========== FOOD VOTE ========== -->
   <section id="foodvote" class="section active">
+    <span class="section-badge">☀️ On the boat · 13:30–21:00</span>
     <div class="section-hero">🚤🍖🥗☀️</div>
     <h2>Food Vote</h2>
-    <p class="section-intro">Tell us your diet & preferences so we can plan the BBQ.</p>
+    <p class="section-intro">Tell us your diet & preferences so we can plan the BBQ on board.</p>
 
     <div class="card">
       <h4>✅ Already covered</h4>
@@ -654,12 +786,7 @@
         <span class="bring-chip">🗑️ Trash bags</span>
         <span class="bring-chip">🧊 Cooler box</span>
       </div>
-      <p style="font-size:0.85rem;color:var(--mck-muted);margin-top:0.5rem;">Anything else welcome — just note it below.</p>
-    </div>
-
-    <div class="logistics-box">
-      <strong>🙌 Logistics heroes wanted!</strong>
-      <p style="margin-top:0.35rem;font-size:0.9rem;">It would be great if you can come a bit earlier, around <strong>13:00</strong>, to help with setup & deliveries :D</p>
+      <p style="font-size:0.85rem;color:var(--muted);margin-top:0.5rem;">Anything else welcome — just note it below.</p>
     </div>
 
     <form id="food-form">
@@ -690,12 +817,6 @@
         </div>
       </div>
 
-      <div class="card" style="margin-bottom:1.25rem;">
-        <label style="display:flex;align-items:center;gap:0.5rem;font-size:0.9rem;cursor:pointer;">
-          <input type="checkbox" name="help" value="early"> 🦸 I can come ~13:00 to help with logistics
-        </label>
-      </div>
-
       <button type="submit" class="btn">Submit 🎉</button>
     </form>
 
@@ -714,24 +835,20 @@
           <th>Diet</th>
           <th>Prefs / allergies</th>
           <th>Bringing</th>
-          <th>~13:00 help</th>
         </tr>
       </thead>
       <tbody id="food-summary-body">
-        <tr><td colspan="5" style="color:var(--mck-muted);">No responses yet.</td></tr>
+        <tr><td colspan="4" style="color:var(--muted);">No responses yet.</td></tr>
       </tbody>
     </table>
-
-    <h3 style="margin-top:2rem;">Logistics helpers (~13:00) 🦸</h3>
-    <div class="card">
-      <p id="roster-early" style="color:var(--mck-muted);">—</p>
-    </div>
   </section>
 
   <!-- ========== POLLS ========== -->
   <section id="polls" class="section">
+    <span class="section-badge">🌙 After the boat · from 21:00</span>
+    <div class="section-hero">🍻🌆✨</div>
     <h2>After-Party Vote</h2>
-    <p class="section-intro">Boat ends 17:30. Vote by <strong>Thu 10 Sep</strong> to book.</p>
+    <p class="section-intro">Boat party runs <strong>13:30–21:00</strong>. Where should we go after that? Vote by <strong>Thu 10 Sep</strong> so we can book.</p>
 
     <div class="callout urgent">
       <strong>Deadline: Thu 10 Sep.</strong> Need headcount for reservations.
@@ -791,10 +908,10 @@
           <div class="venue-img-placeholder">🚤🌊</div>
         </a>
         <div class="venue-card-body">
-          <span class="venue-highlight">🌊 Keep the party on the Spree</span>
-          <h4>🚤 <a href="https://www.spreefloss.de/" target="_blank" rel="noopener">Stay on the boat</a></h4>
+          <span class="venue-highlight">🌊 Keep the vibe on the Spree</span>
+          <h4>🚤 <a href="https://www.spreefloss.de/" target="_blank" rel="noopener">Stay on the boat / Spree</a></h4>
           <p>Wilhelminenhofstraße 92, 12459 Berlin · 0 min — you're already here</p>
-          <p>Extend the rental — more water, music & stars. See fleet & photos on Spreefloss.</p>
+          <p>Extend past 21:00 or wind down by the water instead of heading into town.</p>
           <div class="venue-links">
             <a href="https://www.spreefloss.de/" target="_blank" rel="noopener">Spreefloss ↗</a>
             <a href="https://www.spreefloss.de/alleboote" target="_blank" rel="noopener">Our boats ↗</a>
@@ -813,7 +930,7 @@
           <span>Brunnenstraße 197-198, 10119 Berlin · ~35 min from Spreefloss</span>
           <span class="poll-links"><a href="https://www.mein-haus-am-see.club/" target="_blank" rel="noopener" onclick="event.stopPropagation()">Website ↗</a></span>
           <div class="poll-bar-wrap"><div class="poll-bar" id="bar-meinhaus" style="width:0%"></div></div>
-          <small id="count-meinhaus" style="color:var(--mck-muted);">0 votes</small>
+          <small id="count-meinhaus" style="color:var(--muted);">0 votes</small>
         </div>
       </label>
 
@@ -824,7 +941,7 @@
           <span>Schöneberger Str. 16, 10963 Berlin · ~30 min from Spreefloss</span>
           <span class="poll-links"><a href="https://www.brlo.de/gastronomien/brlo-brwhouse" target="_blank" rel="noopener" onclick="event.stopPropagation()">Website ↗</a></span>
           <div class="poll-bar-wrap"><div class="poll-bar" id="bar-brlo" style="width:0%"></div></div>
-          <small id="count-brlo" style="color:var(--mck-muted);">0 votes</small>
+          <small id="count-brlo" style="color:var(--muted);">0 votes</small>
         </div>
       </label>
 
@@ -835,18 +952,18 @@
           <span>Karl-Marx-Straße 66, 12043 Berlin · ~25 min from Spreefloss</span>
           <span class="poll-links"><a href="https://klunkerkranich.org/" target="_blank" rel="noopener" onclick="event.stopPropagation()">Website ↗</a></span>
           <div class="poll-bar-wrap"><div class="poll-bar" id="bar-klunkerkranich" style="width:0%"></div></div>
-          <small id="count-klunkerkranich" style="color:var(--mck-muted);">0 votes</small>
+          <small id="count-klunkerkranich" style="color:var(--muted);">0 votes</small>
         </div>
       </label>
 
       <label class="poll-option" data-option="boat">
         <input type="radio" name="afterparty" value="boat">
         <div>
-          <strong>D — Stay on the boat</strong>
-          <span>Wilhelminenhofstraße 92, 12459 Berlin · extend rental, no travel</span>
+          <strong>D — Stay on the boat / Spree</strong>
+          <span>Wilhelminenhofstraße 92, 12459 Berlin · extend past 21:00 or wind down by the water</span>
           <span class="poll-links"><a href="https://www.spreefloss.de/" target="_blank" rel="noopener" onclick="event.stopPropagation()">Spreefloss ↗</a></span>
           <div class="poll-bar-wrap"><div class="poll-bar" id="bar-boat" style="width:0%"></div></div>
-          <small id="count-boat" style="color:var(--mck-muted);">0 votes</small>
+          <small id="count-boat" style="color:var(--muted);">0 votes</small>
         </div>
       </label>
 
@@ -856,7 +973,7 @@
           <strong>E — Straight to hotel</strong>
           <span>Skip after-party</span>
           <div class="poll-bar-wrap"><div class="poll-bar" id="bar-hotel" style="width:0%"></div></div>
-          <small id="count-hotel" style="color:var(--mck-muted);">0 votes</small>
+          <small id="count-hotel" style="color:var(--muted);">0 votes</small>
         </div>
       </label>
 
@@ -867,7 +984,7 @@
           <span>Got a spot in mind? Tell us where you'd like to go.</span>
           <input type="text" id="poll-suggest-input" class="poll-suggest-input" placeholder="e.g. House of Weekend, Bar Tausend…" onclick="event.stopPropagation()">
           <div class="poll-bar-wrap"><div class="poll-bar" id="bar-suggest" style="width:0%"></div></div>
-          <small id="count-suggest" style="color:var(--mck-muted);">0 votes</small>
+          <small id="count-suggest" style="color:var(--muted);">0 votes</small>
         </div>
       </label>
 
@@ -880,11 +997,11 @@
 
     <h3 style="margin-top:2rem;">Results</h3>
     <div id="results-summary" class="card">
-      <p id="total-votes" style="font-size:1.1rem;font-weight:600;color:var(--mck-navy);">Total: 0</p>
-      <p id="leading-option" style="color:var(--mck-muted);margin-top:0.5rem;">No votes yet.</p>
+      <p id="total-votes" style="font-size:1.1rem;font-weight:600;color:var(--ocean-deep);">Total: 0</p>
+      <p id="leading-option" style="color:var(--muted);margin-top:0.5rem;">No votes yet.</p>
       <div id="suggestions-list" style="display:none;margin-top:1rem;">
-        <p style="font-weight:600;color:var(--mck-navy);margin-bottom:0.35rem;">Suggested venues</p>
-        <ul id="suggestions-ul" style="margin:0;padding-left:1.25rem;color:var(--mck-muted);font-size:0.92rem;"></ul>
+        <p style="font-weight:600;color:var(--ocean-deep);margin-bottom:0.35rem;">Suggested venues</p>
+        <ul id="suggestions-ul" style="margin:0;padding-left:1.25rem;color:var(--muted);font-size:0.92rem;"></ul>
       </div>
     </div>
   </section>
@@ -920,7 +1037,7 @@
       </div>
       <div class="card">
         <h4>Tip</h4>
-        <p>Arrive by 13:00. Boat leaves 13:30.</p>
+        <p>Arrive 13:00–13:30. Party on the Spree until 21:00.</p>
       </div>
     </div>
 
@@ -991,16 +1108,59 @@
 
   <!-- ========== CONTACT ========== -->
   <section id="contact" class="section">
-    <h2>Contact</h2>
-    <p class="section-intro">Questions? Reach Penny or Clemens.</p>
+    <span class="section-badge">📞 We're here to help</span>
+    <h2>Contact & Escalation Path</h2>
+    <p class="section-intro">
+      Questions, dietary requirements, travel woes, playlist submissions, or existential concerns about boating —
+      Penny & Clemens have you covered.
+    </p>
 
     <div class="contact-card">
+      <h3>Event leads</h3>
       <div class="contact-names">Penny & Clemens</div>
-      <p>Slack / email · day-of: call/text</p>
+      <p>Your contacts for the Late Summer Party on Boat</p>
+      <p style="margin-top:1.25rem;font-size:0.95rem;line-height:1.85;">
+        💬 Team Slack / email<br>
+        📱 Penny (day-of): call/text directly<br>
+        💡 Suggestions welcome: playlist ideas, after-party picks, BBQ notes<br>
+        🚨 Urgent day-of: call/text Penny or Clemens
+      </p>
+    </div>
+
+    <div class="card-grid" style="margin-top:2rem;">
+      <div class="card">
+        <h4>What to contact us about</h4>
+        <ul>
+          <li>Dietary restrictions & allergies</li>
+          <li>Travel & getting to Spreefloss</li>
+          <li>Hotel questions</li>
+          <li>Food vote & what to bring</li>
+          <li>After-party venue suggestions</li>
+          <li>"Can't find the boat" panic (we've all been there)</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4>What not to contact us about</h4>
+        <ul>
+          <li>Client deliverables (wrong escalation path)</li>
+          <li>Whether the boat has Wi-Fi (it doesn't — that's the point)</li>
+          <li>A 47-slide deck for this event (please no)</li>
+          <li>"Is this mandatory?" (Morally yes. Officially… also yes.)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="framework-box" style="margin-top:1.5rem;">
+      <strong>Response SLA:</strong> Penny & Clemens aim for <em>&lt;24h</em> on non-urgent messages.
+      Day-of (18 Sep): <em>&lt;5 min</em> — we'll be at the marina from ~13:00 anyway.
     </div>
 
     <div class="callout" style="margin-top:1.5rem;">
-      Spreefloss: 0157 73660077 · Wilhelminenhofstraße 92, 12459 Berlin
+      <strong>📍 Spreefloss Marina</strong><br>
+      Wilhelminenhofstraße 92, 12459 Berlin<br>
+      <a href="https://maps.google.com/?q=Wilhelminenhofstraße+92,+12459+Berlin" target="_blank" rel="noopener">Google Maps ↗</a>
+      &nbsp;·&nbsp;
+      <a href="https://www.spreefloss.de" target="_blank" rel="noopener">spreefloss.de ↗</a>
     </div>
   </section>
 
@@ -1135,7 +1295,6 @@
 
   // Food vote (localStorage)
   const FOOD_KEY = 'spreefloss_food_votes';
-  const HELP_LABELS = { early: 'Logistics ~13:00' };
   const DIET_LABELS = {
     omnivore: '🥩 Omnivore',
     vegetarian: '🥗 Vegetarian',
@@ -1161,9 +1320,8 @@
     const statsEl = document.getElementById('food-stats');
 
     if (entries.length === 0) {
-      tbody.innerHTML = '<tr><td colspan="5" style="color:var(--mck-muted);">No responses yet.</td></tr>';
+      tbody.innerHTML = '<tr><td colspan="4" style="color:var(--muted);">No responses yet.</td></tr>';
       statsEl.innerHTML = '';
-      document.getElementById('roster-early').textContent = '—';
       return;
     }
 
@@ -1178,16 +1336,9 @@
       (diets.other ? '<span class="summary-stat">' + diets.other + ' other</span>' : '');
 
     tbody.innerHTML = entries.map(e => {
-      const early = (e.help || []).includes('early') ? '✓ 🦸' : '—';
       return '<tr><td><strong>' + esc(e.name) + '</strong></td><td>' + (DIET_LABELS[e.diet] || e.diet) +
-        '</td><td>' + esc(e.prefs || '—') + '</td><td>' + esc(e.bring || '—') +
-        '</td><td>' + early + '</td></tr>';
+        '</td><td>' + esc(e.prefs || '—') + '</td><td>' + esc(e.bring || '—') + '</td></tr>';
     }).join('');
-
-    const earlyVolunteers = entries.filter(e => (e.help || []).includes('early')).map(e => e.name);
-    document.getElementById('roster-early').textContent = earlyVolunteers.length
-      ? earlyVolunteers.join(', ') + ' 🎉'
-      : 'None yet — tick the box if you can help :D';
   }
 
   function esc(s) {
@@ -1200,13 +1351,11 @@
     e.preventDefault();
     const diet = document.querySelector('input[name="diet"]:checked');
     if (!diet) { alert('Select your diet.'); return; }
-    const help = [...document.querySelectorAll('input[name="help"]:checked')].map(c => c.value);
     const entry = {
       name: document.getElementById('food-name').value.trim(),
       diet: diet.value,
       prefs: document.getElementById('food-prefs').value.trim(),
-      bring: document.getElementById('food-bring').value.trim(),
-      help
+      bring: document.getElementById('food-bring').value.trim()
     };
     saveFoodVote(entry);
     document.getElementById('food-thanks').style.display = 'block';
